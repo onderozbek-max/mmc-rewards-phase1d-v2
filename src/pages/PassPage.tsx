@@ -1,9 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
 import { Page } from '@walmart/ld-kit';
 import type { NavMode } from '../types';
-import { buildHref, getCelebrations } from '../utils/rewards';
+import { buildHref } from '../utils/rewards';
 import { BottomNav } from '../components/BottomNav';
-import { CelebrationSheet } from '../components/CelebrationSheet';
 import { CommunityHeader } from '../components/CommunityHeader';
 import { MilestoneTimeline } from '../components/MilestoneTimeline';
 import { ProgressModule } from '../components/ProgressModule';
@@ -14,28 +12,7 @@ interface PassPageProps {
   nav: NavMode;
 }
 
-export function PassPage({ points, previous, nav }: PassPageProps) {
-  const celebrations = getCelebrations(previous, points);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isSheetOpen, setIsSheetOpen] = useState(celebrations.length > 0);
-  const nextSheetTimer = useRef<number | undefined>(undefined);
-  const activeCelebration = celebrations[activeIndex];
-
-  useEffect(() => () => {
-    if (nextSheetTimer.current !== undefined) window.clearTimeout(nextSheetTimer.current);
-  }, []);
-
-  const handleClose = () => {
-    setIsSheetOpen(false);
-    if (activeIndex < celebrations.length - 1 && nextSheetTimer.current === undefined) {
-      nextSheetTimer.current = window.setTimeout(() => {
-        nextSheetTimer.current = undefined;
-        setActiveIndex((index) => index + 1);
-        setIsSheetOpen(true);
-      }, 950);
-    }
-  };
-
+export function PassPage({ points, nav }: PassPageProps) {
   const homeHref = buildHref({ page: 'home', points, nav });
 
   return (
@@ -56,12 +33,6 @@ export function PassPage({ points, previous, nav }: PassPageProps) {
           </div>
         </div>
         <BottomNav activePage="pass" points={points} nav={nav} />
-        <CelebrationSheet
-          celebration={activeCelebration}
-          isOpen={isSheetOpen}
-          onClose={handleClose}
-          onClosed={() => undefined}
-        />
       </div>
     </Page>
   );

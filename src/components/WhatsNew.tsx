@@ -12,7 +12,7 @@ const cards = [
   },
   {
     title: 'Member opportunities',
-    body: 'Keep participating as future in-home use test opportunities are prepared.',
+    body: 'Explore member opportunities available to eligible participants.',
     icon: 'Gift',
   },
 ];

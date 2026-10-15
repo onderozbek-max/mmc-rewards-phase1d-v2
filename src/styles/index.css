@@ -100,7 +100,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .progress-module .ld-progress-indicator { margin-bottom: 16px; }
 .progress-copy { margin: 14px 0 0; color: var(--mm-muted); font-size: 14px; line-height: 1.5; max-width: 620px; }
 .progress-cta { display: inline-flex; align-items: center; gap: 5px; margin-top: 18px; color: var(--mm-green-dark); font-size: 14px; font-weight: 700; }
-.milestone-badge { position: absolute; top: 0; right: 16px; z-index: 1; box-shadow: 0 3px 8px rgba(8, 127, 91, 0.18); }
 
 .whats-new { display: flex; flex-direction: column; gap: 14px; }
 .section-heading-row { display: flex; align-items: center; gap: 12px; }
@@ -147,7 +146,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .timeline-item { position: relative; display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 14px; min-height: 104px; }
 .timeline-marker { position: relative; z-index: 1; display: grid; place-items: center; width: 36px; height: 36px; border: 3px solid var(--mm-background); border-radius: 50%; color: white; background: var(--mm-green); box-shadow: 0 0 0 1px var(--mm-green); }
 .timeline-item.locked .timeline-marker { color: var(--mm-muted); background: #eef2ef; box-shadow: 0 0 0 1px #b7c5bb; }
-.timeline-item.being-prepared .timeline-marker { color: #7a5312; background: #fff3d6; box-shadow: 0 0 0 1px var(--mm-gold); }
 .timeline-content { min-width: 0; padding: 4px 0 26px; }
 .timeline-title-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .timeline-title-row h3 { margin: 0; font-size: 17px; }
@@ -166,7 +164,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .status-list li { display: flex; align-items: center; gap: 12px; padding: 14px; border: 1px solid var(--mm-line); border-radius: 14px; background: var(--mm-surface); }
 .status-list-icon { display: grid; place-items: center; width: 34px; height: 34px; flex: 0 0 auto; border-radius: 50%; color: var(--mm-green-dark); background: var(--mm-green-soft); }
 .status-list-icon.locked { color: var(--mm-muted); background: #eef2ef; }
-.status-list-icon.being-prepared { color: #7a5312; background: #fff3d6; }
 .status-list-copy { display: flex; flex: 1; flex-direction: column; gap: 3px; min-width: 0; }
 .status-list-copy strong { font-size: 14px; }
 .status-list-copy span { color: var(--mm-muted); font-size: 12px; }

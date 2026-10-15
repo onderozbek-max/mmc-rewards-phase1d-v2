@@ -6,19 +6,19 @@ const celebrationCopy: Record<Threshold, CelebrationCopy> = {
   250: {
     threshold: 250,
     congrats: "🎉 Congratulations! You've reached 250 points.",
-    benefit: "You've unlocked additional Community Home modules — check out what's new.",
-    next: 'Keep participating to work toward 1,000 points and more milestones ahead.',
+    benefit: "You've unlocked additional Community Home modules — check out what's new below.",
+    next: 'Keep participating to work toward 1,000 points and Basic in-home use test eligibility.',
   },
   1000: {
     threshold: 1000,
     congrats: "🎉 Congratulations! You've reached 1,000 points.",
-    benefit: "Basic in-home use test eligibility is being prepared for members at this milestone — we'll let you know the moment it's ready.",
-    next: 'Keep participating to work toward 3,000 points, our highest Foundation milestone.',
+    benefit: "You're now eligible for Basic in-home use test opportunities.",
+    next: 'Keep participating to work toward 3,000 points and Premium in-home use test eligibility.',
   },
   3000: {
     threshold: 3000,
-    congrats: "🎉 Congratulations! You've reached 3,000 points — our highest Foundation milestone.",
-    benefit: "Premium in-home use test eligibility is being prepared for members at this milestone — we'll let you know the moment it's ready.",
+    congrats: "🎉 Congratulations! You've reached 3,000 points — our highest Foundation milestone!",
+    benefit: "You're now eligible for Premium in-home use test opportunities.",
     next: 'Thank you for being one of our most active community members.',
   },
 };
@@ -81,7 +81,7 @@ export function getProgressModel(points: number): ProgressModel {
     return {
       fill: (points - 250) / 750,
       label: `${formatPoints(points)} / 1,000 pts`,
-      copy: 'Next up at 1,000 points: Basic in-home use test eligibility — coming soon.',
+      copy: 'Next up at 1,000 points: Basic in-home use test eligibility.',
     };
   }
 
@@ -89,14 +89,14 @@ export function getProgressModel(points: number): ProgressModel {
     return {
       fill: (points - 1000) / 2000,
       label: `${formatPoints(points)} / 3,000 pts`,
-      copy: "You've reached 1,000 points! Basic in-home use test eligibility is being prepared — we'll let you know the moment it's ready.",
+      copy: "You've reached 1,000 points! You're now eligible for Basic in-home use test opportunities.",
     };
   }
 
   return {
     fill: 1,
     label: '3,000+ pts · All Foundation milestones reached',
-    copy: "You've reached 3,000 points — our highest Foundation milestone! Premium in-home use test eligibility is being prepared — we'll let you know the moment it's ready.",
+    copy: "You've reached 3,000 points — our highest Foundation milestone! You're now eligible for Premium in-home use test opportunities.",
   };
 }
 
@@ -109,9 +109,8 @@ export function getCelebrations(previous: number | undefined, points: number): C
   return getCrossedThresholds(previous, points).map((threshold) => celebrationCopy[threshold]);
 }
 
-export function getMilestoneStatus(threshold: Threshold, points: number): 'locked' | 'unlocked' | 'being-prepared' {
-  if (points < threshold) return 'locked';
-  return threshold === 250 ? 'unlocked' : 'being-prepared';
+export function getMilestoneStatus(threshold: Threshold, points: number): 'locked' | 'unlocked' {
+  return points < threshold ? 'locked' : 'unlocked';
 }
 
 export function getCelebrationCopy(threshold: Threshold): CelebrationCopy {

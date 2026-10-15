@@ -40,19 +40,18 @@ export function ProfilePage({ points, nav }: ProfilePageProps) {
             <ul>
               {milestones.map(({ threshold, label }) => {
                 const status = getMilestoneStatus(threshold, points);
-                const isPreparing = status === 'being-prepared';
                 const isLocked = status === 'locked';
                 return (
                   <li key={threshold}>
                     <div className={`status-list-icon ${status}`} aria-hidden="true">
-                      <Icon name={isLocked ? 'Lock' : isPreparing ? 'Hourglass' : 'Check'} size="small" />
+                      <Icon name={isLocked ? 'Lock' : 'Check'} size="small" />
                     </div>
                     <div className="status-list-copy">
                       <strong>{threshold.toLocaleString('en-US')} points</strong>
                       <span>{label}</span>
                     </div>
-                    <Tag color={isLocked ? 'gray' : isPreparing ? 'orange' : 'green'} size="small" variant="secondary">
-                      {isLocked ? 'Locked' : isPreparing ? 'Being prepared' : 'Unlocked'}
+                    <Tag color={isLocked ? 'gray' : 'green'} size="small" variant="secondary">
+                      {isLocked ? 'Locked' : 'Unlocked'}
                     </Tag>
                   </li>
                 );
