@@ -117,11 +117,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .locked-card-copy { display: flex; align-items: flex-start; gap: 8px; color: var(--mm-muted); }
 .locked-card-copy > .ld-icon { flex: 0 0 auto; margin-top: 1px; }
 
-.feed-placeholder { display: grid; justify-items: center; gap: 10px; padding: 42px 24px; border: 1px dashed #c6d4ca; border-radius: 18px; text-align: center; background: rgba(255, 255, 255, 0.45); }
-.feed-placeholder-icon { display: grid; place-items: center; width: 40px; height: 40px; color: var(--mm-green); border-radius: 50%; background: var(--mm-green-soft); font-size: 22px; }
-.feed-placeholder h2 { margin: 0; font-size: 18px; }
-.feed-placeholder p { max-width: 420px; margin: 0; color: var(--mm-muted); font-size: 14px; line-height: 1.5; }
-
 .bottom-nav { position: fixed; right: 0; bottom: 0; left: 0; z-index: 10; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); border-top: 1px solid var(--mm-line); background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(12px); }
 .bottom-nav-inner { display: flex; justify-content: center; gap: 10px; width: min(100%, 480px); margin: 0 auto; }
 .bottom-nav-item { display: inline-flex; flex: 1; align-items: center; justify-content: center; gap: 6px; min-height: 48px; color: var(--mm-muted); font-size: 12px; font-weight: 600; text-decoration: none; }

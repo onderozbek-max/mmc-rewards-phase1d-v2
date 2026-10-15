@@ -49,11 +49,6 @@ export function HomePage({ points, previous, nav, onNavigate }: HomePageProps) {
             <ProgressModule points={points} href={passHref} onActivate={() => onNavigate(passHref)} />
           </div>
           <WhatsNew points={points} />
-          <section className="feed-placeholder" aria-labelledby="feed-heading">
-            <div className="feed-placeholder-icon" aria-hidden="true">✦</div>
-            <h2 id="feed-heading">More community updates are on the way</h2>
-            <p>Keep participating to help shape the next Member's Mark experience.</p>
-          </section>
         </div>
         <DevPanel />
         <BottomNav activePage="home" points={points} nav={nav} />

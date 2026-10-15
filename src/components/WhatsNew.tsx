@@ -12,7 +12,7 @@ const cards = [
   },
   {
     title: 'Member opportunities',
-    body: 'Explore ways to participate with the Member\'s Mark community.',
+    body: 'Explore member opportunities available to eligible participants.',
     icon: 'Gift',
   },
 ];
