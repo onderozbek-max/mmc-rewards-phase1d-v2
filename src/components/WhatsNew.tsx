@@ -1,5 +1,7 @@
 import { Card, CardContent, CardHeader, Icon } from '@walmart/ld-kit';
 
+import { isWhatsNewUnlocked } from '../utils/rewards';
+
 interface WhatsNewProps {
   points: number;
 }
@@ -18,7 +20,7 @@ const cards = [
 ];
 
 export function WhatsNew({ points }: WhatsNewProps) {
-  const isVisible = points >= 250;
+  const isLocked = !isWhatsNewUnlocked(points);
 
   return (
     <section className="whats-new" aria-labelledby="whats-new-heading">
@@ -40,13 +42,13 @@ export function WhatsNew({ points }: WhatsNewProps) {
                 )}
               />
               <CardContent>
-                {isVisible ? (
-                  <p>{card.body}</p>
-                ) : (
+                {isLocked ? (
                   <div className="locked-card-copy">
                     <Icon name="Lock" size="small" a11yLabel="Locked" />
                     <p>Unlock after 250 points to see what's new</p>
                   </div>
+                ) : (
+                  <p>{card.body}</p>
                 )}
               </CardContent>
             </Card>

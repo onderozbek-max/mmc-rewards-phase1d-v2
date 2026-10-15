@@ -100,6 +100,10 @@ export function getProgressModel(points: number): ProgressModel {
   };
 }
 
+export function isWhatsNewUnlocked(points: number): boolean {
+  return points >= 250;
+}
+
 export function getCrossedThresholds(previous: number | undefined, points: number): Threshold[] {
   if (previous === undefined) return [];
   return THRESHOLDS.filter((threshold) => previous < threshold && points >= threshold);
