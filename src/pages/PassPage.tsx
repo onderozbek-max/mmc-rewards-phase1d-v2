@@ -27,7 +27,7 @@ export function PassPage({ points, nav }: PassPageProps) {
             <p>Every response helps shape what's next.</p>
           </section>
           <ProgressModule points={points} />
-          <MilestoneTimeline points={points} nav={nav} />
+          <MilestoneTimeline points={points} />
           <div className="page-action-row">
             <a className="text-link" href={homeHref}>Back to Community Home</a>
           </div>

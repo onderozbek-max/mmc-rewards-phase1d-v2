@@ -1,21 +1,23 @@
 import { Icon, Tag } from '@walmart/ld-kit';
-import type { NavMode } from '../types';
 import { getMilestoneStatus } from '../utils/rewards';
-import { WhatsNew } from './WhatsNew';
 
 interface MilestoneTimelineProps {
   points: number;
-  nav: NavMode;
 }
 
 const milestones = [
   { threshold: null, title: 'Start', detail: 'Your Community journey begins here.' },
-  { threshold: 250, title: '250 points', detail: 'Additional Community Home modules.' },
+  { threshold: 250, title: '250 points', detail: '' },
   { threshold: 1000, title: '1,000 points', detail: '' },
   { threshold: 3000, title: '3,000 points', detail: '' },
 ] as const;
 
 function getMilestoneDetail(threshold: 250 | 1000 | 3000 | null, points: number, fallback: string): string {
+  if (threshold === 250) {
+    return points >= threshold
+      ? 'Additional Community Home modules are unlocked.'
+      : 'Additional Community Home modules are locked until 250 points.';
+  }
   if (threshold === 1000) {
     return points >= threshold
       ? "You've reached 1,000 points! Basic in-home use test eligibility is coming soon — we'll let you know the moment it's ready."
@@ -29,7 +31,7 @@ function getMilestoneDetail(threshold: 250 | 1000 | 3000 | null, points: number,
   return fallback;
 }
 
-export function MilestoneTimeline({ points, nav }: MilestoneTimelineProps) {
+export function MilestoneTimeline({ points }: MilestoneTimelineProps) {
   return (
     <section className="timeline-section" aria-labelledby="timeline-heading">
       <h2 id="timeline-heading">Foundation milestones</h2>
@@ -53,7 +55,6 @@ export function MilestoneTimeline({ points, nav }: MilestoneTimelineProps) {
                   <Tag color={tagColor} size="small" variant="secondary">{tagLabel}</Tag>
                 </div>
                 <p>{detail}</p>
-                {milestone.threshold === 250 && <WhatsNew points={points} />}
               </div>
             </li>
           );
