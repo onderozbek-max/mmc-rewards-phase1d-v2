@@ -146,6 +146,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .timeline-marker { position: relative; z-index: 1; display: grid; place-items: center; width: 36px; height: 36px; border: 3px solid var(--mm-background); border-radius: 50%; color: white; background: var(--mm-green); box-shadow: 0 0 0 1px var(--mm-green); }
 .timeline-item.locked .timeline-marker { color: var(--mm-muted); background: #eef2ef; box-shadow: 0 0 0 1px #b7c5bb; }
 .timeline-item.coming-soon .timeline-marker { color: #7a5312; background: #fff3d6; box-shadow: 0 0 0 1px var(--mm-gold); }
+.timeline-item.coming-soon.reached .timeline-marker { color: white; background: var(--mm-green); box-shadow: 0 0 0 1px var(--mm-green); }
 .timeline-content { min-width: 0; padding: 4px 0 26px; }
 .timeline-title-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .timeline-title-row h3 { margin: 0; font-size: 17px; }
@@ -165,6 +166,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .status-list-icon { display: grid; place-items: center; width: 34px; height: 34px; flex: 0 0 auto; border-radius: 50%; color: var(--mm-green-dark); background: var(--mm-green-soft); }
 .status-list-icon.locked { color: var(--mm-muted); background: #eef2ef; }
 .status-list-icon.coming-soon { color: #7a5312; background: #fff3d6; }
+.status-list-icon.coming-soon.reached { color: var(--mm-green-dark); background: var(--mm-green-soft); }
 .status-list-copy { display: flex; flex: 1; flex-direction: column; gap: 3px; min-width: 0; }
 .status-list-copy strong { font-size: 14px; }
 .status-list-copy span { color: var(--mm-muted); font-size: 12px; }

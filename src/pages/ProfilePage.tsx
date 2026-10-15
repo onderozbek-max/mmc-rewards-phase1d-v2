@@ -42,10 +42,11 @@ export function ProfilePage({ points, nav }: ProfilePageProps) {
                 const status = getMilestoneStatus(threshold, points);
                 const isLocked = status === 'locked';
                 const isComingSoon = status === 'coming-soon';
+                const isReached = points >= threshold;
                 return (
                   <li key={threshold}>
-                    <div className={`status-list-icon ${status}`} aria-hidden="true">
-                      <Icon name={isLocked ? 'Lock' : isComingSoon ? 'Hourglass' : 'Check'} size="small" />
+                    <div className={`status-list-icon ${status}${isReached ? ' reached' : ''}`} aria-hidden="true">
+                      <Icon name={isLocked ? 'Lock' : isReached ? 'Check' : 'Hourglass'} size="small" />
                     </div>
                     <div className="status-list-copy">
                       <strong>{threshold.toLocaleString('en-US')} points</strong>

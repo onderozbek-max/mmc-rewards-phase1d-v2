@@ -40,14 +40,15 @@ export function MilestoneTimeline({ points }: MilestoneTimelineProps) {
           const status = milestone.threshold === null ? 'unlocked' : getMilestoneStatus(milestone.threshold, points);
           const isLocked = status === 'locked';
           const isComingSoon = status === 'coming-soon';
+          const isReached = milestone.threshold !== null && points >= milestone.threshold;
           const tagColor = isLocked ? 'gray' : isComingSoon ? 'orange' : 'green';
           const tagLabel = isLocked ? 'Locked' : isComingSoon ? 'Coming Soon' : 'Unlocked';
           const detail = getMilestoneDetail(milestone.threshold, points, milestone.detail);
 
           return (
-            <li className={`timeline-item ${status}`} key={milestone.title}>
+            <li className={`timeline-item ${status}${isReached ? ' reached' : ''}`} key={milestone.title}>
               <div className="timeline-marker" aria-hidden="true">
-                <Icon name={isLocked ? 'Lock' : isComingSoon ? 'Hourglass' : 'Check'} size="small" />
+                <Icon name={isLocked ? 'Lock' : isComingSoon && !isReached ? 'Hourglass' : 'Check'} size="small" />
               </div>
               <div className="timeline-content">
                 <div className="timeline-title-row">
